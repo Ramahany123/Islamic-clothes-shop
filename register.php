@@ -85,6 +85,7 @@
             ?>
                 <script type="text/javascript">
                     alert(" Membership has been successfully registered");
+                    window.location.href = 'index.html';
                 </script>
             <?php
             } else {
