@@ -8,18 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
+
 <body>
-    #include virtual="header.html"
     <div class="container">
-        <header>
-            <a href="#" class="logo">Islamic Outfits</a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="register.php">Register</a></li>
-                <li><a href="#">shop</a></li>
-            </ul>
-        </header>
+        <?php include("header.php"); ?>
         <div class="content">
             <h2>Discover the latest fashion <br />trends and styles</h2>
             <br />

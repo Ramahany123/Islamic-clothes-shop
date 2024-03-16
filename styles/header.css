@@ -20,6 +20,14 @@ header .inner{
   margin: 0 auto;
 }
 
+header {
+  background-color: aliceblue;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 header .logo{
   display: table;
   height: 100%;
@@ -63,7 +71,7 @@ header nav a{
 }
 
 header nav .button{
-  background-color: #8c8e31; /* This HEX is the color of the button */
+  background-color: #e3c973; /* This HEX is the color of the button */
   color: #FFF;
   padding: 10px 20px;
   border-radius: 4px;
