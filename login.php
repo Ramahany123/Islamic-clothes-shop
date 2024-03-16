@@ -23,7 +23,7 @@
         <section id="login-section">
             <h2>Login</h2>
             <form action="" method="post" id="loginForm">
-                <input type="email" name="User_Email" id="email" placeholder="Email" autocomplete="off" required />
+                <input type="text" name="User_Email" id="user_name" placeholder="User Name" autocomplete="off" required />
                 <input type="password" name="User_Password" id="password" placeholder="Password" autocomplete="off" required />
                 <input type="submit" name="submit" value="Login" id="loginbtn">
             </form>
