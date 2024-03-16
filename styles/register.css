@@ -72,7 +72,7 @@ body {
     outline: none;
 }
 
-#register-div>button {
+#register-div>form>button {
     width: 60%;
     margin-top: 0px;
     margin-bottom: 20px;
@@ -88,7 +88,7 @@ body {
 
 
 
-#register-div>button:hover {
+#register-div>form>button:hover {
     color: #f0f0f0;
     background-color:#000000;
     cursor: pointer;
@@ -144,7 +144,7 @@ body {
     }
    
       
-    #register-div>button {
+    #register-div>form>button {
         width: 50%;
         margin-top: 5px;
         margin-bottom: 20px;

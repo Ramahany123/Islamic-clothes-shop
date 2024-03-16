@@ -48,7 +48,7 @@ body {
 
 }
 
-#login-section>button {
+#login-section>form>button {
     border: none;
     width: 50%;
     border-radius: 0px;
@@ -62,10 +62,29 @@ body {
     color:white;
     margin-bottom: 50px;
 }
+select#who {
+    padding: 10px; /* Adjust padding for better appearance */
+    font-size: 14px; /* Set font size */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 30px; /* Add border radius for rounded corners */
+    background-color: #fff; /* Set background color */
+    color: #333; /* Set text color */
+    cursor: pointer; /* Show pointer cursor */
+    width: 90%;
+  }
+  
+  /* Style for select options */
+  select#who option {
+    padding: 10px; /* Adjust padding for better appearance */
+  }
+  
+  /* Style for select options on hover */
+  select#who option:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+  }
 
 
-
-#login-section>button:hover {
+#login-section>form>button:hover {
     background-color: black;
     cursor: pointer;
     color: white;
