@@ -10,26 +10,36 @@
     <link rel="stylesheet" href="styles/login.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+        rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet" />
+    
 </head>
-
+<header>
+    
 <body>
     <section id="image">
         <img src="images/WhatsApp Image 2024-03-08 at 18.33.19_469f94d8.jpg">
     </section>
 
-    <main>
+<main>
         <section id="login-section">
             <h2>Login</h2>
-            <form action="" method="post" id="loginForm">
-                <input type="text" name="User_Email" id="user_name" placeholder="User Name" autocomplete="off" required />
-                <input type="password" name="User_Password" id="password" placeholder="Password" autocomplete="off" required />
-                <input type="submit" name="submit" value="Login" id="loginbtn">
+            <form action="" id="loginForm">
+                <input type="text" id="user_name" name="User_Username" placeholder="User Name" autocomplete="off" required />
+                <input type="password" id="password" placeholder="Password" autocomplete="off" required />
+                <select name="Who are u" id="who">
+                     <option value="Admin">Admin</option>
+                     <option value="Customer">Customer</option> 
+                     </select>
+                <button id="loginbtn">Login</button>
+                
             </form>
+            
             <section id="register-and-social-media">
                 <div>
-                    <span>Dont Have an Account? </span><a href="register.php"> Register</a>
+                    <span>Dont Have an Account? </span><a href="register.html"> Register</a>
                 </div>
             </section>
             <?php
@@ -54,6 +64,9 @@
             ?>
         </section>
     </main>
+
+    
 </body>
 
 </html>
+
