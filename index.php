@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <?php include("header.php"); ?>
+        <?php include("header.html"); ?>
         <div class="content">
             <h2>Discover the latest fashion <br />trends and styles</h2>
             <br />

@@ -33,9 +33,9 @@
                 <li> tag will be the container for the table.
                 <span> will be the part that centers the content inside it
                 <a> is the actual clickable part -->
-        <li><span><a href="">Home</a></span></li>
-        <li><span><a href="">Login</a></span></li>
-        <li><span><a href="">Register</a></span></li>
+        <li><span><a href="index.php">Home</a></span></li>
+        <li><span><a href="login.php">Login</a></span></li>
+        <li><span><a href="register.php">Register</a></span></li>
         <li><span><a href="">Shop</a></span></li>
         <li><span><a href="">Admin</a></span></li>
         <li><span><a href="" class="button">Contact</a></span></li>
