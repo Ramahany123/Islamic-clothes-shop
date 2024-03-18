@@ -36,14 +36,11 @@
                     <li><a href="">Our Team</a></li>
                 </ul>
             </div>
-            <div class="footerBottom">
-                <p>
-                    Copyright &copy;2024; Designed by
-                    <span class="designer">amany, rama, alaa, omnia, shahd</span>
-                </p>
-            </div>
         </div>
     </div>
+
+
+
 </body>
 
 </html>

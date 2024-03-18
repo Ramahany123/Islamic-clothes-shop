@@ -21,7 +21,7 @@
 
 <body>
     <section id="image">
-        <img src="images/WhatsApp Image 2024-03-08 at 18.33.19_469f94d8.jpg">
+        <img src="images/log_reg.jpg">
     </section>
 
 
@@ -85,7 +85,7 @@
             ?>
                 <script type="text/javascript">
                     alert(" Membership has been successfully registered");
-                    window.location.href = 'index.html';
+                    window.location.href = 'index.php';
                 </script>
             <?php
             } else {
