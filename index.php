@@ -1,46 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <title>Home</title>
-    <link rel="stylesheet" href="styles/index.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" >
+    <link href="https://fonts.google.com/specimen/Source+Sans+Pro" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <title>Rimba Fashion Store</title>
+    <link href='styles/bootstrap.css' rel='stylesheet'>
+    <link href='styles/home.css' rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet">
+    <body style="background-image: url('images/home.jpeg'); background-size: cover;background-repeat: no-repeat;">
+
 </head>
-
-
 <body>
-    <div class="container">
-        <?php include("header.html"); ?>
-        <div class="content">
-            <h2>Discover the latest fashion <br />trends and styles</h2>
-            <br />
-            <p>Browse by category or check out our <br />sale items</p>
-            <br />
-            <button>Browse</button>
-        </div>
-        <div class="footerContainer">
-            <div class="socailicons">
-                <a href=""><i class="fa-brands fa-facebook"></i></a>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-twitter"></i></a>
-                <a href=""><i class="fa-brands fa-google-plus"></i></a>
-                <a href=""><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            <div class="footerNav">
+    <header class="container-fluid">
+        <div id="home">
+            <nav>
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">News</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact Us</a></li>
-                    <li><a href="">Our Team</a></li>
+                    <li><img src="images/logo.png"></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="">shop</a></li>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="contact.html">contact us</a></li>
+
+
                 </ul>
+            </nav>
+            
+            <div class="container">
+                <img src="images/logo.png" height="200">
+                <h1>ISLAMIC <strong>OUTFIT</strong> STORE</h1>
+                <h2>Islamic outfit store is an online shop, that sells fashion islamic clothes online.<br>
+                Shop with us to get your clothes.</h2>
+                <a class="shop-btn" href="storeclothes.html"><button>Shop now</button></a>
             </div>
         </div>
-    </div>
-
-
-
+    </header>
+    <footer class="main-footer">
+        <p>copyright &copy; Islamic outfit shop</p>
+    </footer>
 </body>
-
 </html>
