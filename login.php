@@ -35,7 +35,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Login') {
         $_SESSION[$id_key] = $row[$id_key];
 
 
-        echo "<script>alert('Logged in successfully'); window.location.href = 'index.php';</script>";
+        echo "<script>alert('Logged in successfully'); window.location.href = 'index.html';</script>";
         exit;
     } else {
 
