@@ -1,132 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap');
-*{
-    font-family: 'Ubuntu', sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+body {
+    font-family: 'Chilanka', cursive;
+    margin: 0px;
+    padding: 0px;
 }
-a{
-    color: white;
+.container-fluid {
+    padding: 0px;
+}
+
+nav {
+    width: 100%;
+    text-align:start;
+    position: fixed;
+    align-items: start;
+    z-index: 2;
+    top: 0px;
+    padding: 10px 50px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.05);
+    background-color: rgba(0,0,0,0.6);
+}
+nav li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 80px;
+}
+nav a {
     text-decoration: none;
-}
-body{
-    background-image: linear-gradient(to right, #01022d , #000);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.container{
-    background-image: 
-    linear-gradient(to right, #01022dd2 , #000000a1),
-    url(../Images/re.jpg)
-    ;
-    width: 93%;
-    height: 640px;
-}
-.container:hover{
-    background-image: 
-    linear-gradient(to right, #01022dd2 , #00000071, transparent),
-    url(../Images/re.jpg)
-    ;
-}
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
-.logo{
-    font-size: 35px;
-}
-ul{
-    width: 60%;
-    list-style:none;
-    display: flex;
-    justify-content: space-evenly;
-}
-ul a{
-    border-bottom: 2px solid transparent;
-}
-ul a:hover{
-    border-bottom-color: red ;
-}
-.content{
     color: white;
-    width: 50%;
-    margin-top: 50px;
-    padding: 30px;
+    padding: 10px 15px;
 }
-.content h2{
-    font-size: 55px;
-    text-transform: uppercase;
-}
-.content p{
-    letter-spacing: 3px;
-    width: 1000px;
-    padding: 20px 0;
-}
-.content button{
-    font-size: 20px;
-    padding: 6px 10px;
-    border-radius: 10px;
-    border: 2px solid transparent;
+nav a:hover {
+    text-decoration: none;
+    color: plum;
     cursor: pointer;
 
 }
-.content button:hover{
-    background-color: transparent;
-    border-color: white;
-    color: white;
 
+@media only screen and (max-width: 800px) {
+    nav {
+        text-align: center;
+    }
+    nav ul {
+        margin-right: 5px;
+    }
 }
-footer{
-    background-color: #111;
-}
-.footerContainer{
-    width: 100%;
-    padding: 20px 30px 70px;
-}
-.socailicons{
+#home {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-}
-.socailicons a{
-    text-decoration: none;
-    margin: 10px;
-    border-radius: 40%;
-}
-.socailicons a i{
-    font-size: 2em;
-    color: black;
-    opacity: 0.9;
-}
-.footerNav{
-    margin: 3px 0;
-}
-.footerNav ul{
-    display:flex;
-    justify-content: center;
-}
-.footerNav ul a{
-    color: black;
-    margin: 20px;
-    text-decoration: none;
-    opacity: 0.7;
-    transition: 0.5s;
-}
-.footerNav ul a{
-    opacity: 1;
-}
-.footerBottom{
-    padding: 3px;
+    align-items: center;
+    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
+    background-blend-mode: overlay;
+    height: 95vh;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    color: white;
     text-align: center;
-    
+}
+#home:hover{
+    background-image: 
+    linear-gradient(to right, #01022dd2 , #00000071, transparent);
+}
+#home img {
+    padding: 0;
+    width: 30%;
+    height: 50%;
+}
+h1 strong{
+    color: plum;
+  }
+#home h1 {
+    letter-spacing: 2px;
+}
+#home h1, h2, img, button {
+    animation: fromLeft;
+    animation-duration: 2s; 
+    animation-delay: 1s;
+    opacity: 0;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+}
+@keyframes fromLeft {
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    50%{
+        transform: translateX(30px)
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+button {
+    width: 150px;
+    height: 45px;
+    justify-content: center;
+    background-color: plum;
+    color: #FFFFFF;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    text-decoration: none;
 
+}
+button:hover {
+    color: black;
 }
 
 
-
+.main-footer {
+    display: flex;
+    color: white;
+    justify-content: center;
+    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
+    background-color: rgba(0,0,0,0.6);
+  }
 
 
 
