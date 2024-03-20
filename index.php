@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" >
     <link href="https://fonts.google.com/specimen/Source+Sans+Pro" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>Rimba Fashion Store</title>
+    <title>Islamic Fashion Store</title>
     <link href='styles/bootstrap.css' rel='stylesheet'>
-    <link href='styles/home.css' rel="stylesheet">
+    <link href='styles/index.css' rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet">
     <body style="background-image: url('images/home.jpeg'); background-size: cover;background-repeat: no-repeat;">
 
