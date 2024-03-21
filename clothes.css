@@ -1,0 +1,156 @@
+
+* {
+  box-sizing: border-box;
+  color: rgb(160, 158, 158);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  
+}
+h1{
+  font-family: 'Chilanka', cursive;
+  padding-top: 60px;
+}
+h1 strong{
+  color: plum;
+}
+
+.main-header {
+  background-color: rgba(0, 0, 0, .6);
+  background-blend-mode: multiply;
+  padding-bottom: 50px;
+
+}
+nav {
+  width: 100%;
+  position: fixed;
+  align-items: start;
+  text-align:center;
+  z-index: 2;
+  top: 0px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.05);
+  background-color: rgba(0,0,0,0.6);
+  font-family: 'Chilanka', cursive;
+
+}
+nav li {
+  list-style: none;
+  display:table-cell;
+  vertical-align: middle;
+}
+header nav li:first-child{
+  padding-left: 50px;
+  padding-right: 700px;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+}
+nav a:hover {
+  text-decoration: none;
+  color: plum;
+  cursor: pointer;
+
+}
+
+#logo{
+  width: 200px;
+  height: 70px;
+}
+
+.band-name {
+  text-align: center;
+  margin: 0;
+  font-size: 4em;
+  
+  font-weight: normal;
+  color: white;
+}
+
+.band-name-large {
+  font-size: 8em;
+}
+.shop-item-image{
+  margin-left: 25px;
+}
+
+
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+
+
+.btn {
+  text-align: center;
+  padding: .67em .67em;
+  cursor: pointer;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #56CCF2;
+  border: none;
+  border-radius: .3em;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #34454e;
+}
+
+
+.women{
+  background-color: plum;
+  border-radius: 10PX;
+}
+.shop-item {
+  margin: 40px;
+}
+
+.shop-item-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.shop-item-image {
+  height: 250px;
+}
+
+.shop-item-details {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.shop-item-price {
+  text-align: center;
+  
+  color: #333;
+}
+
+.shop-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.main-footer {
+  display: flex;
+  color: white;
+  justify-content: center;
+  background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
+  background-color: rgba(0,0,0,0.6);
+}
