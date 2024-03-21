@@ -9,31 +9,37 @@ body {
 
 nav {
     width: 100%;
-    text-align:start;
     position: fixed;
     align-items: start;
+    text-align:center;
     z-index: 2;
     top: 0px;
-    padding: 10px 50px;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.05);
     background-color: rgba(0,0,0,0.6);
-}
-nav li {
+    font-family: 'Chilanka', cursive;
+  
+  }
+  nav li {
     list-style: none;
-    display: inline-block;
-    margin-right: 80px;
-}
-nav a {
+    display:table-cell;
+    vertical-align: middle;
+  }
+  header nav li:first-child{
+    padding-left: 0px;
+    padding-right: 400px;
+  }
+  nav a {
     text-decoration: none;
     color: white;
     padding: 10px 15px;
-}
-nav a:hover {
+  }
+  nav a:hover {
     text-decoration: none;
     color: plum;
     cursor: pointer;
-
-}
+  
+  }
+  
 
 @media only screen and (max-width: 800px) {
     nav {
@@ -119,6 +125,3 @@ button:hover {
     background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
     background-color: rgba(0,0,0,0.6);
   }
-
-
-
