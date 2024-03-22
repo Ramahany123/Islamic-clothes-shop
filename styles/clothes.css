@@ -121,6 +121,7 @@ nav a:hover {
   background: linear-gradient(to bottom, #f7f7f7, #eaeaea); /* Example of a gradient background */
   position: relative; /* Ensure the container is positioned relative */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  transition: transform 0.3s ease; /* Smooth transition for the transform property */
 }
 .shop-item:hover {
   transform: scale(1.05); /* Example of scaling on hover */
