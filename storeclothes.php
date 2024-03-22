@@ -43,7 +43,7 @@ if (!$result) {
                     <div class="shop-item">
                         <span class="shop-item-title"><?php echo $row['product_name']; ?></span>
                         <img class="shop-item-image" src="<?php echo $row['product_image']; ?>">
-                        <p class="shop-item-price"><?php echo $row['product_price']; ?></p>
+                        <p class="shop-item-price"><?php echo $row['product_price']; ?> EGP</p>
                         <div class="shop-item-details">
                             <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                             <a href="#content-section"><button class="btn btn-primary shop-item-button">VIEW DETAILS</button></a>

@@ -116,9 +116,13 @@ nav a:hover {
 .shop-item {
   flex: 0 0 calc(33.33% - 20px);
   margin: 40px;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); Add box shadow */
+  border: 2px solid #ddd; /* Example of a solid border */
+  background: linear-gradient(to bottom, #f7f7f7, #eaeaea); /* Example of a gradient background */
+  transition: transform 0.3s ease; /* Example of a transition effect */
 }
-
+.shop-item:hover {
+  transform: scale(1.05); /* Example of scaling on hover */
+}
 .shop-item-title {
   display: block;
   width: 100%;
@@ -149,9 +153,16 @@ nav a:hover {
 }
 
 .shop-item-price {
-  text-align: center;
-  
+  text-align: center; /* Align the text center horizontally */
+  font-size: 1.2em;
   color: #333;
+  margin-top: 10px;
+  font-weight: bold;
+  border: 2px solid #50575a;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: block; /* Change to block to center align horizontally */
+  margin: 0 auto; /* Center align horizontally */
 }
 
 .shop-items {
