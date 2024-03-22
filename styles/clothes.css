@@ -19,11 +19,13 @@ h1 strong{
 }
 
 .main-header {
+  transition: background-color 0.5s ease;
   background-color: rgba(0, 0, 0, .6);
   background-blend-mode: multiply;
   padding-bottom: 50px;
 
 }
+
 nav {
   width: 100%;
   position: fixed;
@@ -112,9 +114,17 @@ nav a:hover {
   border-radius: 10PX;
 }
 .shop-item {
-  margin: 40px;
+  flex: 0 0 calc(33.33% - 20px);
+  margin: 20px; /* Decrease margin to reduce overall size */
+  padding: 10px; /* Add padding to provide space between the border and the image */
+  border: 2px solid #ddd; /* Example of a solid border */
+  background: linear-gradient(to bottom, #f7f7f7, #eaeaea); /* Example of a gradient background */
+  position: relative; /* Ensure the container is positioned relative */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
-
+.shop-item:hover {
+  transform: scale(1.05); /* Example of scaling on hover */
+}
 .shop-item-title {
   display: block;
   width: 100%;
@@ -126,8 +136,17 @@ nav a:hover {
 }
 
 .shop-item-image {
-  height: 250px;
+  width: 200px; /* Adjust the width as needed */
+  height: auto; /* Automatically adjust height based on aspect ratio */
+  border: 2px solid transparent; /* Start with a transparent border */
+  transition: border-color 0.3s ease; /* Smooth transition for the border color change */
 }
+
+/* Define the border color for the hover effect */
+.shop-item-image:hover {
+  border-color: #000; /* Change the border color to black on hover */
+}
+
 
 .shop-item-details {
   display: flex;
@@ -136,9 +155,16 @@ nav a:hover {
 }
 
 .shop-item-price {
-  text-align: center;
-  
+  text-align: center; /* Align the text center horizontally */
+  font-size: 1.2em;
   color: #333;
+  margin-top: 10px;
+  font-weight: bold;
+  border: 2px solid #50575a;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: block; /* Change to block to center align horizontally */
+  margin: 0 auto; /* Center align horizontally */
 }
 
 .shop-items {
