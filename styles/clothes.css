@@ -115,10 +115,12 @@ nav a:hover {
 }
 .shop-item {
   flex: 0 0 calc(33.33% - 20px);
-  margin: 40px;
+  margin: 20px; /* Decrease margin to reduce overall size */
+  padding: 10px; /* Add padding to provide space between the border and the image */
   border: 2px solid #ddd; /* Example of a solid border */
   background: linear-gradient(to bottom, #f7f7f7, #eaeaea); /* Example of a gradient background */
-  transition: transform 0.3s ease; /* Example of a transition effect */
+  position: relative; /* Ensure the container is positioned relative */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 .shop-item:hover {
   transform: scale(1.05); /* Example of scaling on hover */
