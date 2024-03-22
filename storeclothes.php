@@ -46,7 +46,7 @@ if (!$result) {
                         <p class="shop-item-price"><?php echo $row['product_price']; ?> EGP</p>
                         <div class="shop-item-details">
                             <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                            <a href="#content-section"><button class="btn btn-primary shop-item-button">VIEW DETAILS</button></a>
+                            <a href="productDetails.php?id=<?php echo $row['product_id']; ?>"><button class="btn btn-primary shop-item-button">VIEW DETAILS</button></a>
                         </div>
                     </div>
                 </div>
