@@ -1,6 +1,15 @@
 <?php
 session_start();
 $totalAmount = 0;
+
+if(isset($_POST['remove_from_cart'])) {
+    $remove_product_id = $_POST['remove_product_id'];
+    foreach($_SESSION['cart'] as $key => $value) {
+        if($value['product_id'] == $remove_product_id) {
+            unset($_SESSION['cart'][$key]);
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +19,7 @@ $totalAmount = 0;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="" />
 </head>
 <body>
     <div id="cart-window" class="cart-window">
