@@ -125,28 +125,28 @@ if (isset($_POST['remove_from_cart'])) {
         <div class="category-container">
 
             <!-- box 1-->
-            <a href="#" class="category-box">
+            <a href="category_clothes.php?Category_id=1" class="category-box">
                 <img src="Images/main.jpg" alt="category" />
                 <span>Skirts</S></span>
             </a>
 
             <!-- box 2-->
-            <a href="#" class="category-box">
+            <a href="category_clothes.php?Category_id=2" class="category-box">
                 <img src="Images/c-2png.jpg" alt="category" />
                 <span>Hijab</S></span>
             </a>
 
             <!-- box 3-->
-            <a href="#" class="category-box">
+            <a href="category_clothes.php?Category_id=3" class="category-box">
                 <img src="Images/c-3.png" alt="category" />
                 <span>dresses</S></span>
             </a>
 
             <!-- box 4-->
-            <a href="#" class="category-box">
+            <!-- <a href="category_clothes.php" class="category-box">
                 <img src="Images/c-4.png" alt="category" />
                 <span>Shoes</S></span>
-            </a>
+            </a> -->
         </div>
     </section>
 
