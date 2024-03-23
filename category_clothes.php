@@ -50,9 +50,17 @@ if (isset($_POST['remove_from_cart'])) {
 //////////* Category section *////////////
 $category_id = isset($_GET['Category_id']) ? $_GET['Category_id'] : null;
 $category_name = isset($_GET['Category_name']) ? $_GET['Category_name'] : null;
-$category_query = "SELECT * FROM `product` WHERE `category_id` = $category_id";
+// Fetch products based on the category ID
+$category_query = "SELECT p.*, c.category_name 
+                    FROM product p 
+                    JOIN category c ON p.category_id = c.category_id 
+                    WHERE p.category_id = $category_id";
 $category_query_result = mysqli_query($con, $category_query);
-// $category_query_product = mysqli_fetch_assoc($result);
+
+// Fetch category name separately
+$category_name_query = "SELECT category_name FROM category WHERE category_id = $category_id";
+$category_name_result = mysqli_query($con, $category_name_query);
+$category_name_row = mysqli_fetch_assoc($category_name_result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,14 +111,11 @@ $category_query_result = mysqli_query($con, $category_query);
 
   <section id="feature-product">
     <!-- heading -->
-    <h2>Our Product</h2>
-
+    <h2><?php echo $category_name_row['category_name']; ?></h2>
     <!-- box-container -->
     <div class="feature-product-container">
       <!-- box 1 -->
       <?php
-      $query = "SELECT * FROM `product`";
-      $result = mysqli_query($con, $query);
 
       while ($row = mysqli_fetch_assoc($category_query_result)) {
       ?>
