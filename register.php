@@ -59,33 +59,37 @@
         $User_Phone = $_POST['User_Phone'];
         $User_Email = $_POST['User_Email'];
 
+        $query_max_id = "SELECT MAX(customer_id) AS max_id FROM `customer`";
+        $result_max_id = mysqli_query($con, $query_max_id);
+        $row_max_id = mysqli_fetch_assoc($result_max_id);
+        $max_id = $row_max_id['max_id'];
+        $next_id = $max_id + 1;
 
-        $query = "SELECT * FROM `customer` WHERE `customer_Username` ='$User_Username'";
+        $query = "SELECT * FROM `customer` WHERE `customer_Email` ='$User_Email'";
         $sql = mysqli_query($con, $query);
 
         $row = mysqli_fetch_array($sql);
         if ($row > 0) {
     ?>
             <script type="text/javascript">
-                alert(" User Name already exists");
+                alert(" Email already exists");
                 window.location.href = 'register.php';
             </script>
             <?php
         } else {
-            $sql1 = " INSERT INTO `customer` ( `customer_name`, `customer_username`, `customer_password`,
-            `customer_address`, `customer_phone_number`, `customer_Email`) 
-            VALUES ( '$User_Name', '$User_Username', '$User_Password', '$User_Address', '$User_Phone', '$User_Email');";
+           
 
 
-            $q1 = "INSERT INTO `customer` ( `customer_name`, `customer_username`, `customer_password`,
-            `customer_address`, `customer_phone_number`, `customer_Email`) 
-            VALUES ( '$User_Name', '$User_Username', '$User_Password', '$User_Address', '$User_Phone', '$User_Email');";
+            $sql1 = "INSERT INTO `customer` (`customer_id`, `customer_name`, `customer_username`, `customer_password`,
+        `customer_address`, `customer_phone_number`, `customer_Email`) 
+        VALUES ('$next_id', '$User_Name', '$User_Username', '$User_Password', '$User_Address', '$User_Phone', '$User_Email')";
 
-            if (mysqli_query($con, $q1)) {
+
+            if (mysqli_query($con, $sql1)) {
             ?>
                 <script type="text/javascript">
                     alert(" Membership has been successfully registered");
-                    window.location.href = 'index.php';
+                    window.location.href = 'index.html';
                 </script>
             <?php
             } else {
