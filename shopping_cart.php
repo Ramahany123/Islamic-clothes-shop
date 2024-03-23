@@ -55,6 +55,8 @@ if(isset($_POST['remove_from_cart'])) {
     </table>
     
     <p>Total Amount: <?php echo $totalAmount; ?> LE</p>
+    <button onclick="location.href='check_out.php'">proceed to checkout</button>
+    
 </div>
 </body>
 </html>
