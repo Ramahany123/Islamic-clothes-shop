@@ -1,11 +1,50 @@
 <?php
-include('connection.php');
-// Assuming you have already established a database connection
-$query = "SELECT * FROM product";
-$result = mysqli_query($con, $query);
+include 'connection.php';
+session_start();
 
-if (!$result) {
-    die("Database query failed.");
+if (isset($_POST['add_to_cart'])) {
+    $product_id = $_POST['product_id'];
+    $query = "SELECT * FROM `product` WHERE `product_id` = $product_id";
+    $result = mysqli_query($con, $query);
+    $product = mysqli_fetch_assoc($result);
+
+    if (isset($_SESSION['cart'])) {
+        $session_array_id = array_column($_SESSION['cart'], "product_id");
+
+        if (!in_array($product_id, $session_array_id)) {
+            $session_array = array(
+                'product_id' => $product['product_id'],
+                'name' => $product['product_name'],
+                'price' => $product['product_price'],
+                'quantity' => 1
+            );
+            $_SESSION['cart'][] = $session_array;
+        } else {
+            foreach ($_SESSION['cart'] as &$item) {
+                if ($item['product_id'] == $product_id) {
+                    $item['quantity']++;
+                    break;
+                }
+            }
+        }
+    } else {
+        $session_array = array(
+            'product_id' => $product['product_id'],
+            'name' => $product['product_name'],
+            'price' => $product['product_price'],
+            'quantity' => 1
+        );
+        $_SESSION['cart'][] = $session_array;
+    }
+}
+
+if (isset($_POST['remove_from_cart'])) {
+    $remove_product_id = $_POST['remove_product_id'];
+    foreach ($_SESSION['cart'] as $key => $value) {
+        if ($value['product_id'] == $remove_product_id) {
+            unset($_SESSION['cart'][$key]);
+        }
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -33,19 +72,20 @@ if (!$result) {
         <ul class="menu">
 
             <li><a href="index.html">Home</a></li>
-            <li><a href="storeclothes.html">shop</a></li>
-            <li><a href="contact.html">contact us</a></li>
+            <li><a href="clothes.html">shop</a></li>
+            <li><a href="about-us.html">About US</a></li>
+            <li><a href="mailto:aa4894713@gmail.com" id="contact">contact us</a></li>
         </ul>
         <!-- right -->
         <div class="right-elements">
 
             <!-- cart -->
             <a href="#">
-                <i><img id="cart" src="Images/cart.png"></i>
+                <i><a href="shopping_cart.php"><img id="cart" src="Images/cart.png"></a></i>
             </a>
 
             <!-- user -->
-            <a href="login.html">
+            <a href="login.php">
                 <i><img id="user" src="Images/user.png"></i>
             </a>
         </div>
@@ -117,34 +157,43 @@ if (!$result) {
 
     <section id="feature-product">
         <!-- heading -->
-
         <h2>Our Product</h2>
+
         <!-- box-container -->
         <div class="feature-product-container">
-            <?php while ($row = mysqli_fetch_assoc($result)) : ?>
-                <!-- box 1 -->
+            <!-- box 1 -->
+            <?php
+            $query = "SELECT * FROM `product`";
+            $result = mysqli_query($con, $query);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+            ?>
                 <div class="feature-product-box">
                     <!-- img -->
                     <div class="product-feature-img">
-                        <img src="<?php echo $row['product_image']; ?>" alt="">
+                        <img src="Images/<?php echo $row['product_image']; ?>" alt="">
                     </div>
                     <!-- text-container -->
                     <div class="product-feature-text-container">
                         <!-- text -->
                         <div class="product-feature-text">
                             <strong><?php echo $row['product_name']; ?></strong>
-                            <span><?php echo $row['product_price']; ?></span>
+                            <span><?php echo $row['product_price']; ?> LE</span>
                         </div>
                         <!-- cart like icon -->
                         <div class="cart-like">
                             <!-- cart icon -->
-                            <a><img id="cart1" src="Images/cart.png"></a>
+                            <form method="post" action="">
+                                <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
+                                <button class="item-button" type="submit" name="add_to_cart"><a><img id="cart1" src="Images/cart.png"></a></button>
+                            </form>
                             <!-- heart icon -->
                             <a><img id="love" src="Images/love.png"></a>
                         </div>
                     </div>
-                <?php endwhile; ?>
+                <?php } ?>
                 </div>
+
     </section>
 
     <!-- product end -->
@@ -185,14 +234,7 @@ if (!$result) {
                 </div>
                 <!-- text -->
                 <span>copyright &copy; Islamic outfit shop</span>
-                <!-- Social -->
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
+
             </div>
 
 
