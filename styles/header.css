@@ -1,45 +1,88 @@
-body {
-    font-family: 'Chilanka', cursive;
+*{
     margin: 0px;
     padding: 0px;
+    font-family: poppins;
+    box-sizing: border-box;
+    font-family: 'Chilanka', cursive;
 }
-.container-fluid {
+body{
+    margin: 0px;
     padding: 0px;
+    font-family: poppins;
 }
-
-nav {
-    width: 100%;
-    text-align:start;
-    position:sticky;
-    align-items: start;
-    z-index: 1000;
-    top: 0px;
-    padding: 10px 50px;
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.05);
-    background-color: rgba(0,0,0,0.6);
-}
-nav li {
+ul{
     list-style: none;
-    display: inline-block;
-    margin-right: 80px;
 }
-nav a {
+a{
     text-decoration: none;
+}
+
+/* Navigation bar */
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    margin: auto;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.6);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+#logo{
+    width: 200px;
+    height: 70px;
+  }
+.menu{
+    display: flex;
+    
+}
+.menu li a{
+    margin: 5px;
+    padding: 5px 20px;
     color: white;
-    padding: 10px 15px;
+    font-weight: 500;
+    opacity: 0.7;
+    transition: all ease 0.3s;
+    
 }
-nav a:hover {
-    text-decoration: none;
+.menu .active{
+    opacity: 1;
+
+}
+.menu li a:hover{
+    opacity: 1;
+    transition: all ease 0.3s;
     color: plum;
-    cursor: pointer;
-
-}
-nav img {
-    width: 100px; 
-    height: auto;
 }
 
+.right-elements{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right-elements a{
+    margin: 0px 10px;
+}
+.right-elements a i{
+    color: black;
+    
+}
+.right-elements a:hover i{
+    color: plum;
+    transition: all ease 0.2s;
 
+}
+#cart{
+    width: 50px;
+    height: 50px;
+}
 
-
-
+#user{
+    width: 50px;
+    height: 50px;
+}
