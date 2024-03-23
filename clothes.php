@@ -171,7 +171,7 @@ if (isset($_POST['remove_from_cart'])) {
                 <div class="feature-product-box">
                     <!-- img -->
                     <div class="product-feature-img">
-                        <img src="Images/<?php echo $row['product_image']; ?>" alt="">
+                        <a href="productDetails.php?id=<?php echo $row['product_id']; ?>"><img src="<?php echo $row['product_image']; ?>" alt=""></a>
                     </div>
                     <!-- text-container -->
                     <div class="product-feature-text-container">
