@@ -1,20 +1,41 @@
-<header class="header">
+<!DOCTYPE html>
+<html lang="en">
 
-   <div class="flex">
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Islamic outfit shop</title>
+   <link rel="stylesheet" href="styles/styles.css" />
+   <link rel="shortcut icon" href="" />
 
-      <a href="#" class="logo">Islamic_Clothes_shop</a>
+</head>
 
-      <nav class="navbar">
-         <a href="admin.php">add products</a>
-         <a href="clothes.php">view products</a>
-      </nav>
+<body>
+   <nav class="navigation" style="position: sticky;">
+      <!-- Logo -->
+      <a href="admin.php"><i><img id="logo" src="images/logo.png"></i></a>
 
-      
+      <!-- menu -->
+      <ul class="menu">
 
-      <a href="shopping_cart.php" class="cart">cart <span> </a>
+         <li><a href="admin.php" style="font-size: 20px;">Add Products</a></li>
+         <li><a href="admin-clothes.php" style="font-size: 20px;">View Products</a></li>
+      </ul>
+      <!-- right -->
+      <div class="right-elements">
 
-      <div id="menu-btn" class="fas fa-bars"></div>
+         <!-- cart -->
+         <a href="#">
+            <i><a href="shopping_cart.php"><img id="cart" src="Images/cart.png"></a></i>
+         </a>
 
-   </div>
+         <!-- user -->
+         <a href="login.php">
+            <i><img id="user" src="Images/user.png"></i>
+         </a>
+      </div>
+   </nav>
+</body>
 
-</header>
+</html>
