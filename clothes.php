@@ -222,44 +222,7 @@ if (isset($_POST['remove_from_cart'])) {
 
     <!-- footer -->
 
-    <footer>
-
-        <div class="footer-container">
-            <!-- logo container -->
-
-            <div class="footer-logo-container">
-                <!-- logo -->
-                <div class="footer-logo">
-                    Hey!
-                </div>
-                <!-- text -->
-                <span>copyright &copy; Islamic outfit shop</span>
-
-            </div>
-
-
-            <!-- footer menu -->
-            <div class="footer-menu">
-                <!-- footer menu box -->
-                <div class="footer-menu-box">
-                    <strong>
-                        Product
-                    </strong>
-                    <ul>
-                        <li><a href="clothes.php">Women</a></li>
-                        <li><a href="clothes.php">Latest girls Clothes</a></li>
-                        <li><a href="category_clothes.php?Category_id=4">New women Shoes</a></li>
-                    </ul>
-                </div>
-
-
-    </footer>
-
-    <!-- footer end -->
-
-    <!-- copyrights -->
-
-    <span class="copyright">copyright &copy; Islamic outfit shop</span>
+    <?php include_once 'footer.html'; ?>
 
 </body>
 
