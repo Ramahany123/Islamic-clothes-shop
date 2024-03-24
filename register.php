@@ -51,7 +51,7 @@
     <?php
     if (@$_POST['submit'] and $_POST['submit'] == 'Create Account') {
         include("connection.php");
-
+        session_start();
         $User_Name = $_POST['User_Name'];
         $User_Username = $_POST['User_Username'];
         $User_Password = $_POST['User_Password'];
@@ -65,14 +65,16 @@
         $max_id = $row_max_id['max_id'];
         $next_id = $max_id + 1;
 
-        $query = "SELECT * FROM `customer` WHERE `customer_Email` ='$User_Email'";
+        $_SESSION['customer_id'] = "$next_id";
+
+        $query = "SELECT * FROM `customer` WHERE `customer_username` ='$User_Username'";
         $sql = mysqli_query($con, $query);
 
         $row = mysqli_fetch_array($sql);
         if ($row > 0) {
     ?>
             <script type="text/javascript">
-                alert(" Email already exists");
+                alert(" Username already exists");
                 window.location.href = 'register.php';
             </script>
             <?php
