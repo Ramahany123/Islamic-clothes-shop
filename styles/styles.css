@@ -305,6 +305,15 @@ a {
     align-items: center;
     background-color: #f5f5f5;
     border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    /* Add transition for smooth effect */
+}
+
+.product-feature-img:hover {
+    transform: scale(1.05);
+    /* Scale up the image on hover */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Add shadow on hover */
 }
 
 .product-feature-img img {
@@ -312,7 +321,10 @@ a {
     height: 90%;
     object-fit: contain;
     object-position: center;
+    transition: all 0.3s ease;
+    /* Add transition for smooth effect */
 }
+
 
 .product-feature-img a {
     display: block;
