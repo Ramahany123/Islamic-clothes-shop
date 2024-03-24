@@ -62,7 +62,7 @@ if (isset($_POST['add_to_cart'])) {
   <div class="container">
     <h1><?php echo $product['product_name']; ?></h1>
     <div class="product-details">
-      <img src="<?php echo $product['product_image']; ?>" alt="Product Image">
+      <img src="uploaded/<?php echo $product['product_image']; ?>" alt="Product Image">
       <div class="product-info">
         <h2>Description</h2>
         <p><?php echo $product['product_details']; ?></p>
@@ -79,7 +79,7 @@ if (isset($_POST['add_to_cart'])) {
           <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
           <button class="btn" type="submit" name="add_to_cart">Add to Cart</button>
         </form>
-        
+
       </div>
     </div>
   </div>
