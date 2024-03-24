@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $totalAmount = 0;
 
 if(isset($_POST['remove_from_cart'])) {
@@ -10,6 +11,14 @@ if(isset($_POST['remove_from_cart'])) {
         }
     }
 }
+
+$product_id = array(); // Array to store product IDs 
+if (isset($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $item) {
+        $product_id[] = $item['product_id'];
+    }
+}
+$_SESSION['product_id'] = $product_id;
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +28,7 @@ if(isset($_POST['remove_from_cart'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="styles\shopping_cart.css" />
 </head>
 <body>
     <div id="cart-window" class="cart-window">
@@ -35,6 +44,8 @@ if(isset($_POST['remove_from_cart'])) {
             <th>Action</th>
         </tr>
         <?php 
+
+    
         if (isset($_SESSION['cart'])) : ?>
             <?php foreach ($_SESSION['cart'] as $item) : ?>
                 <tr>
@@ -50,7 +61,9 @@ if(isset($_POST['remove_from_cart'])) {
                         </form>
                     </td>
                 </tr>
-            <?php endforeach; ?>
+                
+                <?php endforeach; ?>
+            
         <?php endif; ?>
     </table>
     
