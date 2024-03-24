@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+.cart-window{
+  background: linear-gradient(90deg, #f9cacc 60%, #fad3d4 40.1%);
+  padding: 250px 100px;
+}
+
+table{width: 100%;}
+tr th{color: black; text-shadow: 2px 2px coral; font-size: 20pt; padding: 5px 20px; background-color: bisque; border-radius: 20px;}
+tr th:hover {background-color: coral;}
+tr:nth-child(odd) {background-color: coral ;}
+tr:nth-child(even) {background-color: bisque;}
+td{text-align: center;}
+ button {
+    transition: background-color 0.5s;
+   
+    font-size: 20px;
+    padding: 5px 5px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    background-color: rgb(251, 160, 127);
+}
+button:hover{
+    background-color:  #b6702b;
+    border-color:#fad3d4;
+    color: white;
+}
+h2 {color: black; text-shadow: 2px 2px coral; text-align: center;}
+p{color: black; text-shadow: 2px 2px rgb(237, 184, 165); text-align: center;}
+
+
+
