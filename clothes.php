@@ -72,9 +72,9 @@ if (isset($_POST['remove_from_cart'])) {
         <ul class="menu">
 
             <li><a href="index.html">Home</a></li>
-            <li><a href="clothes.html">shop</a></li>
-            <li><a href="about-us.html">About US</a></li>
-            <li><a href="mailto:aa4894713@gmail.com" id="contact">contact us</a></li>
+            <li><a href="clothes.html">Shop</a></li>
+            <li><a href="about-us.html">About us</a></li>
+            <li><a href="mailto:aa4894713@gmail.com" id="contact">Contact us</a></li>
         </ul>
         <!-- right -->
         <div class="right-elements">
