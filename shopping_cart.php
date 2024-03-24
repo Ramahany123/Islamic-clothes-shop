@@ -76,6 +76,7 @@ $_SESSION['product_id'] = $product_id;
         <button onclick="location.href='check_out.php'">proceed to checkout</button>
 
     </div>
+    <?php include_once 'footer.html'; ?>
 </body>
 
 </html>

@@ -173,9 +173,9 @@ $category_name_row = mysqli_fetch_assoc($category_name_result);
             Product
           </strong>
           <ul>
-            <li><a href="#">Women</a></li>
-            <li><a href="#">Latest girls Clothes</a></li>
-            <li><a href="#">New women Shoes</a></li>
+            <li><a href="clothes.php">Women</a></li>
+            <li><a href="clothes.php">Latest girls Clothes</a></li>
+            <li><a href="category_clothes.php?Category_id=4">New women Shoes</a></li>
           </ul>
         </div>
 

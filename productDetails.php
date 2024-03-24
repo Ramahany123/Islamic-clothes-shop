@@ -83,6 +83,7 @@ if (isset($_POST['add_to_cart'])) {
       </div>
     </div>
   </div>
+  <?php include_once 'footer.html'; ?>
 </body>
 
 </html>
