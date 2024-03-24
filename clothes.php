@@ -66,7 +66,7 @@ if (isset($_POST['remove_from_cart'])) {
     <!-- Navigation bar -->
     <nav class="navigation">
         <!-- Logo -->
-        <img id="logo" src="images/logo.png"></li>
+        <a href="index.html"><i><img id="logo" src="images/logo.png"></i></a>
 
         <!-- menu -->
         <ul class="menu">
@@ -105,7 +105,7 @@ if (isset($_POST['remove_from_cart'])) {
                     Our Islamic Skirt collection is meticulously designed with your comfort in mind. Crafted from the finest fabrics, each skirt boasts a classic silhouette that exudes sophistication and grace.
                     Embrace your fearless style while enjoying the familiar comfort of these timeless pieces, perfect for any occasion.
                 </p>
-                <a href="#">Shop Now</a>
+                <a href="#feature-product">Shop Now</a>
             </div>
             <!-- main image -->
             <div class="main-img">
@@ -143,10 +143,10 @@ if (isset($_POST['remove_from_cart'])) {
             </a>
 
             <!-- box 4-->
-            <!-- <a href="category_clothes.php" class="category-box">
+            <a href="category_clothes.php?Category_id=4" class="category-box">
                 <img src="Images/c-4.png" alt="category" />
                 <span>Shoes</S></span>
-            </a> -->
+            </a>
         </div>
     </section>
 
@@ -207,7 +207,7 @@ if (isset($_POST['remove_from_cart'])) {
             <strong>Luxury Shoes</strong>
             <span>From 230EGP</span>
             <p>Long Lasting And Comfortable to use.This is only For You.</p>
-            <a href="#">Shop Now</a>
+            <a href="category_clothes.php?Category_id=4">Shop Now</a>
         </div>
         <!-- img -->
         <div class="banner-img">

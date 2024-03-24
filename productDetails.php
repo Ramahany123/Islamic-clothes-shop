@@ -55,7 +55,7 @@ if (isset($_GET['id'])) {
             <div class="color-option" style="background-color: <?php echo $color; ?>; border: 1px solid #000;"></div>
           <?php endforeach; ?>
         </div>
-        <a href="#" class="btn">Add to Cart</a>
+        <a href="" class="btn">Add to Cart</a>
       </div>
     </div>
   </div>

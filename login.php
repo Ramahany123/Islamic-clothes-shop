@@ -15,11 +15,13 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Login') {
         $id_key = 'Admin_ID';
         $username_column = 'Admin_Username';
         $password_column = 'Admin_Password';
+        $destination = 'admin.php';
     } else {
         $table = 'customer';
         $id_key = 'customer_id';
         $username_column = 'customer_username';
         $password_column = 'customer_password';
+        $destination = 'index.html';
     }
 
 
@@ -35,7 +37,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Login') {
         $_SESSION[$id_key] = $row[$id_key];
 
 
-        echo "<script>alert('Logged in successfully'); window.location.href = 'index.html';</script>";
+        echo "<script>alert('Logged in successfully'); window.location.href = '$destination';</script>";
         exit;
     } else {
 
