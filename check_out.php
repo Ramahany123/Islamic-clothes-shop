@@ -1,5 +1,22 @@
 <?php
 include 'connection.php';
+session_start();
+
+// Check if the user is logged in, and get their customer ID
+if (isset($_SESSION['customer_id'])) {
+    $customer_id = $_SESSION['customer_id'];
+    
+} else {
+    // Redirect the user to the login page or display an error message if they're not logged in
+    exit('Access denied: Please log in first.');
+}
+
+// Get product IDs from session
+$product_ids = isset($_SESSION['product_id']) ? $_SESSION['product_id'] : array();
+
+
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     // Retrieve form data
@@ -17,24 +34,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
     // Insert data into the orders table
     $sql = "INSERT INTO orders (Order_date, Order_total_amount, Order_status, Customer_id)
-            VALUES (NOW(), NULL, 'Pending', NULL)";
+            VALUES (NOW(), NULL, 'Pending', $customer_id)";
 
     if ($con->query($sql) === TRUE) {
         $orderId = $con->insert_id; // Get the ID of the inserted order
 
         // Insert data into the ordersdetails table
-        $shippingAddress = $con->real_escape_string($address . ', ' . $city . ', ' . $country . ', ' . $zipCode);
-        $sqlDetails = "INSERT INTO ordersdetails (OrdersDetails_Quantity, OrdersDetails_payment_methods, OrdersDetails_shipping_address, OrdersDetails_orders_id, 	OrdersDetails_product_id)
-                       VALUES (1, '$paymentMethod', '$shippingAddress', $orderId, NULL)";
+        foreach ($product_ids as $product_id) {
+            $shippingAddress = $con->real_escape_string($address . ', ' . $city . ', ' . $country . ', ' . $zipCode);
+            $sqlDetails = "INSERT INTO ordersdetails (OrdersDetails_Quantity, OrdersDetails_payment_methods, OrdersDetails_shipping_address, OrdersDetails_orders_id, OrdersDetails_product_id)
+                           VALUES (1, '$paymentMethod', '$shippingAddress', $orderId, $product_id)";
 
-        if ($con->query($sqlDetails) === TRUE) {
-            echo "<script>alert('Your order has been successfully placed. Thank you!'); window.location.href = 'clothes.php';</script>";
-            exit; // Ensure no more code is executed after redirection
-        } else {
-            echo "Error: " . $sqlDetails . "<br>" . $con->error;
+            if ($con->query($sqlDetails) !== TRUE) {
+                echo "Error inserting order details: " . $con->error;
+                // Rollback transaction or handle error as needed
+            }
         }
+
+        echo "<script>alert('Your order has been successfully placed. Thank you!'); window.location.href = 'clothes.php';</script>";
+        exit; // Ensure no more code is executed after redirection
     } else {
-        echo "Error: " . $sql . "<br>" . $con->error;
+        echo "Error inserting order: " . $con->error;
     }
 
     $con->close();
@@ -53,23 +73,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     <!-- custom css file link  -->
     <link rel="stylesheet" href="styles\check_out.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        function showConfirmation() {
-            var confirmation = confirm("Your order has been successfully placed. Thank you!");
-            if (confirmation) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    </script>
-
+    
 </head>
 <body>
 
 <div class="container">
 
-    <form action="" method="post" onsubmit="return showConfirmation();">
+    <form action="" method="post" >
 
         <div class="row">
 
