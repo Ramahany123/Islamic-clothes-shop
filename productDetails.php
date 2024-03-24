@@ -1,5 +1,6 @@
 <?php
 include('connection.php');
+session_start();
 if (isset($_GET['id'])) {
   // Sanitize the input to prevent SQL injection
   $product_id = mysqli_real_escape_string($con, $_GET['id']);
@@ -25,6 +26,25 @@ if (isset($_GET['id'])) {
 } else {
   echo "Product ID not provided.";
 }
+if (isset($_POST['add_to_cart'])) {
+  $product_id = $_POST['product_id'];
+
+  // Check if the cart session exists, if not, initialize it  
+  if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = array();
+  }
+
+  $_SESSION['cart'][] = array(
+    'product_id' => $product_id,
+    'name' => $product['product_name'],
+    'price' => $product['product_price'],
+    'quantity' => 1
+  );
+
+  echo "<script>alert('Product added to cart successfully!');</script>";
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +75,11 @@ if (isset($_GET['id'])) {
             <div class="color-option" style="background-color: <?php echo $color; ?>; border: 1px solid #000;"></div>
           <?php endforeach; ?>
         </div>
-        <a href="" class="btn">Add to Cart</a>
+        <form method="post">
+          <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
+          <button class="btn" type="submit" name="add_to_cart">Add to Cart</button>
+        </form>
+        
       </div>
     </div>
   </div>
