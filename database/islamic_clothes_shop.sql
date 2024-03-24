@@ -92,7 +92,8 @@ CREATE TABLE `product` (
   `product_Size` varchar(30) DEFAULT NULL,
   `product_Color` varchar(30) DEFAULT NULL,
   `product_Discount` float DEFAULT NULL,
-  `Category_id` int(11) DEFAULT NULL
+  `Category_id` int(11) DEFAULT NULL,
+  `product_image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
