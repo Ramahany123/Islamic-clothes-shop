@@ -191,9 +191,9 @@ if (isset($_POST['remove_from_cart'])) {
                             <a><img id="love" src="Images/love.png"></a>
                         </div>
                     </div>
-                <?php } ?>
                 </div>
-
+            <?php } ?>
+        </div>
     </section>
 
     <!-- product end -->

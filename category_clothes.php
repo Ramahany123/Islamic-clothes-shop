@@ -142,9 +142,9 @@ $category_name_row = mysqli_fetch_assoc($category_name_result);
               <a><img id="love" src="Images/love.png"></a>
             </div>
           </div>
-        <?php } ?>
         </div>
-
+      <?php } ?>
+    </div>
   </section>
 
   <!-- product end -->
