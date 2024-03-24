@@ -20,11 +20,15 @@ if (isset($_SESSION['message'])) {
 if (isset($_POST['add_product'])) {
     $p_name = $_POST['p_name'];
     $p_price = $_POST['p_price'];
+    $p_size = $_POST['p_size'];
+    $p_color = $_POST['p_color'];
+    $p_quantity = $_POST['p_quantity'];
+    $c_name = $_POST['c_name'];
     $p_image = $_FILES['p_image']['name'];
     $p_image_tmp_name = $_FILES['p_image']['tmp_name'];
     $p_image_folder = 'uploaded/' . $p_image;
 
-    $insert_query = mysqli_query($con, "INSERT INTO product(product_name,product_price,product_image) VALUES('$p_name', '$p_price', '$p_image')") or die('query failed');
+    $insert_query = mysqli_query($con, "INSERT INTO product(product_name,product_price,product_Size,product_Color,product_QuantityInStock,Category_name,product_image) VALUES('$p_name', '$p_price','$p_size','$p_color','$p_quantity','$c_name' ,'$p_image')") or die('query failed');
 
     if ($insert_query) {
         move_uploaded_file($p_image_tmp_name, $p_image_folder);
@@ -52,11 +56,15 @@ if (isset($_POST['update_product'])) {
     $update_p_id = $_POST['update_p_id'];
     $update_p_name = $_POST['update_p_name'];
     $update_p_price = $_POST['update_p_price'];
+    $update_p_size = $_POST['update_p_size'];
+    $update_p_color = $_POST['update_p_color'];
+    $update_p_quantity = $_POST['update_p_quantity'];
+    $update_c_name = $_POST['update_c_name'];
     $update_p_image = $_FILES['update_p_image']['name'];
     $update_p_image_tmp_name = $_FILES['update_p_image']['tmp_name'];
     $update_p_image_folder = 'uploaded_img/' . $update_p_image;
 
-    $update_query = mysqli_query($con, "UPDATE product SET product_name = '$update_p_name', product_price = '$update_p_price', product_image = '$update_p_image' WHERE product_id = '$update_p_id'");
+    $update_query = mysqli_query($con, "UPDATE product SET product_name = '$update_p_name', product_price = '$update_p_price', product_Size ='$update_p_size', product_Color = '$update_p_color', product_QuantityInStock = '$update_p_quantity ', Category_name = '$update_c_nam', product_image = '$update_p_image' WHERE product_id = '$update_p_id'");
 
     if ($update_query) {
         move_uploaded_file($update_p_image_tmp_name, $update_p_image_folder);
@@ -101,6 +109,10 @@ if (isset($_POST['update_product'])) {
                 <h3>Add a new product </h3>
                 <input type="text" name="p_name" placeholder="Enter the product name" class="box" required>
                 <input type="number" name="p_price" min="0" placeholder="Enter the product price" class="box" required>
+                <input type="text" name="p_size" placeholder="Enter the product size" class="box" required>
+                <input type="text" name="p_color" placeholder="Enter the product color" class="box" required>
+                <input type="number" name="p_quantity" placeholder="Enter the product quantity in stock" class="box" required>
+                <input type="text" name="c_name" placeholder="Enter the category name" class="box" required>
                 <input type="file" name="p_image" accept="image/png, image/jpg, image/jpeg" class="box" required>
                 <input type="submit" value="Add the product" name="add_product" class="btn">
             </form>
@@ -112,6 +124,10 @@ if (isset($_POST['update_product'])) {
                     <th>product image</th>
                     <th>product name</th>
                     <th>product price</th>
+                    <th>product size</th>
+                    <th>product color</th>
+                    <th>product quantity</th>
+                    <th>category name</th>
                     <th>action</th>
                 </thead>
                 <tbody>
@@ -128,6 +144,10 @@ if (isset($_POST['update_product'])) {
                                 <td><img src="uploaded/<?php echo $row['product_image']; ?>" height="100" alt=""></td>
                                 <td><?php echo $row['product_name']; ?></td>
                                 <td><?php echo "\$" . $row['product_price']; ?>/-</td>
+                                <td><?php echo  $row['product_Size']; ?></td>
+                                <td><?php echo  $row['product_Color']; ?></td>
+                                <td><?php echo  $row['product_QuantityInStock']; ?></td>
+                                <td><?php echo  $row['Category_name']; ?></td>
                                 <td>
                                     <a href="admin.php?delete=<?php echo $row['product_id']; ?>" class="delete-btn" onclic="return confirm('are your sure you want to delete this ?')"> <i class="fas fa-trash"></i> delete </a>
                                     <a href="admin.php?edit=<?php echo $row['product_id']; ?>" class="option-btn"><i class="fas fa-edit"></i>update</a>
@@ -161,6 +181,10 @@ if (isset($_POST['update_product'])) {
                             <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['product_id']; ?>">
                             <input type="text" class="box" required name="update_p_name" value="<?php echo $fetch_edit['product_name']; ?>">
                             <input type="number" min="0" class="box" required name="update_p_price" value="<?php echo $fetch_edit['product_price']; ?>">
+                            <input type="text" name="update_p_size"  class="box" required value="<?php echo $fetch_edit['product_Size']; ?>">
+                <input type="text" name="update_p_color" class="box" required  value="<?php echo $fetch_edit['product_Color']; ?>">
+                <input type="number" name="update_p_quantity"  class="box" required value="<?php echo $fetch_edit['product_QuantityInStock']; ?>">
+                <input type="text" name="update_c_name" class="box" required value="<?php echo $fetch_edit['Category_name']; ?>">
                             <input type="file" class="box" required name="update_p_image" accept="image/png, image/jpg, image/jpeg">
                             <input type="submit" value="update the prodcut" name="update_product" class="btn">
                             <input type="reset" value="cancel" id="close-edit" class="option-btn">
