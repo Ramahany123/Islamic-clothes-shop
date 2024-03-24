@@ -70,7 +70,7 @@ $category_name_row = mysqli_fetch_assoc($category_name_result);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Islamic outfit shop</title>
-  <link rel="stylesheet" href="styles/category_clothes.css" />
+  <link rel="stylesheet" href="styles/styles.css" />
   <link rel="shortcut icon" href="" />
 
   <!-- poppins -->
@@ -87,9 +87,9 @@ $category_name_row = mysqli_fetch_assoc($category_name_result);
     <ul class="menu">
 
       <li><a href="index.html">Home</a></li>
-      <li><a href="clothes.html">shop</a></li>
-      <li><a href="about-us.html">About US</a></li>
-      <li><a href="mailto:aa4894713@gmail.com" id="contact">contact us</a></li>
+      <li><a href="clothes.html">Shop</a></li>
+      <li><a href="about-us.html">About us</a></li>
+      <li><a href="mailto:aa4894713@gmail.com" id="contact">Contact us</a></li>
     </ul>
     <!-- right -->
     <div class="right-elements">
@@ -122,7 +122,7 @@ $category_name_row = mysqli_fetch_assoc($category_name_result);
         <div class="feature-product-box">
           <!-- img -->
           <div class="product-feature-img">
-            <a href="productDetails.php?id=<?php echo $row['product_id']; ?>"><img src="<?php echo $row['product_image']; ?>" alt=""></a>
+            <a href="productDetails.php?id=<?php echo $row['product_id']; ?>"><img src="uploaded/<?php echo $row['product_image']; ?>" alt=""></a>
           </div>
           <!-- text-container -->
           <div class="product-feature-text-container">
