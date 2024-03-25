@@ -113,8 +113,6 @@ $category_name_row = mysqli_fetch_assoc($category_name_result);
                 <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
                 <button class="item-button" type="submit" name="add_to_cart"><a><img id="cart1" src="Images/cart.png"></a></button>
               </form>
-              <!-- heart icon -->
-              <a><img id="love" src="Images/love.png"></a>
             </div>
           </div>
         </div>
