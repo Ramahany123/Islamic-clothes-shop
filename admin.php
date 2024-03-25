@@ -132,7 +132,8 @@ if (isset($_POST['update_product'])) {
                 </thead>
                 <tbody>
                     <?php
-                    $select_products = mysqli_query($con, "SELECT * FROM product");
+                    $select_products = mysqli_query($con, "SELECT p.*, c.Category_name FROM product p 
+                    JOIN category c ON p.Category_id = c.Category_id");
 
                     if (mysqli_num_rows($select_products) > 0) {
                         while ($row = mysqli_fetch_assoc($select_products)) {
@@ -181,10 +182,10 @@ if (isset($_POST['update_product'])) {
                             <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['product_id']; ?>">
                             <input type="text" class="box" required name="update_p_name" value="<?php echo $fetch_edit['product_name']; ?>">
                             <input type="number" min="0" class="box" required name="update_p_price" value="<?php echo $fetch_edit['product_price']; ?>">
-                            <input type="text" name="update_p_size"  class="box" required value="<?php echo $fetch_edit['product_Size']; ?>">
-                <input type="text" name="update_p_color" class="box" required  value="<?php echo $fetch_edit['product_Color']; ?>">
-                <input type="number" name="update_p_quantity"  class="box" required value="<?php echo $fetch_edit['product_QuantityInStock']; ?>">
-                <input type="text" name="update_c_name" class="box" required value="<?php echo $fetch_edit['Category_name']; ?>">
+                            <input type="text" name="update_p_size" class="box" required value="<?php echo $fetch_edit['product_Size']; ?>">
+                            <input type="text" name="update_p_color" class="box" required value="<?php echo $fetch_edit['product_Color']; ?>">
+                            <input type="number" name="update_p_quantity" class="box" required value="<?php echo $fetch_edit['product_QuantityInStock']; ?>">
+                            <input type="text" name="update_c_name" class="box" required value="<?php echo $fetch_edit['Category_name']; ?>">
                             <input type="file" class="box" required name="update_p_image" accept="image/png, image/jpg, image/jpeg">
                             <input type="submit" value="update the prodcut" name="update_product" class="btn">
                             <input type="reset" value="cancel" id="close-edit" class="option-btn">
