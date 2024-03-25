@@ -105,7 +105,7 @@ if (isset($_POST['remove_from_cart'])) {
                     Our Islamic Skirt collection is meticulously designed with your comfort in mind. Crafted from the finest fabrics, each skirt boasts a classic silhouette that exudes sophistication and grace.
                     Embrace your fearless style while enjoying the familiar comfort of these timeless pieces, perfect for any occasion.
                 </p>
-                <a href="#feature-product">Shop Now</a>
+                <a href="category_clothes.php?Category_id=1">Shop Now</a>
             </div>
             <!-- main image -->
             <div class="main-img">
