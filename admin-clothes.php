@@ -64,7 +64,7 @@ if (isset($_POST['remove_from_cart'])) {
 
 <body>
     <!-- Navigation bar -->
-    <?php include 'head-admin.php'; ?>
+    <?php include 'admin-head.php'; ?>
     <!-- end navigation -->
 
     <!-- main -->
@@ -80,7 +80,7 @@ if (isset($_POST['remove_from_cart'])) {
                     Our Islamic Skirt collection is meticulously designed with your comfort in mind. Crafted from the finest fabrics, each skirt boasts a classic silhouette that exudes sophistication and grace.
                     Embrace your fearless style while enjoying the familiar comfort of these timeless pieces, perfect for any occasion.
                 </p>
-                <a href="#feature-product">Shop Now</a>
+                <a href="admin_category_clothes.php?Category_id=1">Shop Now</a>
             </div>
             <!-- main image -->
             <div class="main-img">
@@ -100,25 +100,25 @@ if (isset($_POST['remove_from_cart'])) {
         <div class="category-container">
 
             <!-- box 1-->
-            <a href="category_clothes.php?Category_id=1" class="category-box">
+            <a href="admin_category_clothes.php?Category_id=1" class="category-box">
                 <img src="Images/main.jpg" alt="category" />
                 <span>Skirts</S></span>
             </a>
 
             <!-- box 2-->
-            <a href="category_clothes.php?Category_id=2" class="category-box">
+            <a href="admin_category_clothes.php?Category_id=2" class="category-box">
                 <img src="Images/c-2png.jpg" alt="category" />
                 <span>Hijab</S></span>
             </a>
 
             <!-- box 3-->
-            <a href="category_clothes.php?Category_id=3" class="category-box">
+            <a href="admin_category_clothes.php?Category_id=3" class="category-box">
                 <img src="Images/c-3.png" alt="category" />
                 <span>dresses</S></span>
             </a>
 
             <!-- box 4-->
-            <a href="category_clothes.php?Category_id=4" class="category-box">
+            <a href="admin_category_clothes.php?Category_id=4" class="category-box">
                 <img src="Images/c-4.png" alt="category" />
                 <span>Shoes</S></span>
             </a>
@@ -146,7 +146,7 @@ if (isset($_POST['remove_from_cart'])) {
                 <div class="feature-product-box">
                     <!-- img -->
                     <div class="product-feature-img">
-                        <a href="productDetails.php?id=<?php echo $row['product_id']; ?>"><img src="uploaded/<?php echo $row['product_image']; ?>" alt=""></a>
+                        <a href="admin-productDetails.php?id=<?php echo $row['product_id']; ?>"><img src="uploaded/<?php echo $row['product_image']; ?>" alt=""></a>
                     </div>
                     <!-- text-container -->
                     <div class="product-feature-text-container">
@@ -182,7 +182,7 @@ if (isset($_POST['remove_from_cart'])) {
             <strong>Luxury Shoes</strong>
             <span>From 230EGP</span>
             <p>Long Lasting And Comfortable to use.This is only For You.</p>
-            <a href="category_clothes.php?Category_id=4">Shop Now</a>
+            <a href="admin_category_clothes.php?Category_id=4">Shop Now</a>
         </div>
         <!-- img -->
         <div class="banner-img">

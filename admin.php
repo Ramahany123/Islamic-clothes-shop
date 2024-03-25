@@ -45,7 +45,7 @@ if (isset($_POST['add_product'])) {
     $p_image_folder = 'uploaded/' . $p_image;
 
     $c_id = getCategoryID($c_name);
-    $insert_query = mysqli_query($con, "INSERT INTO product(product_name,product_price,product_Size,product_Color,product_QuantityInStock,product_image, product_details, Category_id) VALUES('$p_name', '$p_price','$p_size','$p_color','$p_quantity','$p_image', $p_describtion,'$c_id')") or die('query failed');
+    $insert_query = mysqli_query($con, "INSERT INTO product(product_name,product_price,product_Size,product_Color,product_QuantityInStock,product_image, product_details, Category_id) VALUES('$p_name', '$p_price','$p_size','$p_color','$p_quantity','$p_image', '$p_describtion','$c_id')") or die('query failed');
     if ($insert_query) {
         move_uploaded_file($p_image_tmp_name, $p_image_folder);
         set_message('Product added successfully'); // Set success message
@@ -80,7 +80,7 @@ if (isset($_POST['update_product'])) {
     $update_p_image = $_FILES['update_p_image']['name'];
     $update_p_image_tmp_name = $_FILES['update_p_image']['tmp_name'];
     $update_p_image_folder = 'uploaded_img/' . $update_p_image;
-    $update_c_id = getCategoryID($updatec_name);
+    $update_c_id = getCategoryID($update_c_name);
     $update_query = mysqli_query($con, "UPDATE product SET product_name = '$update_p_name', product_price = '$update_p_price', product_Size ='$update_p_size', product_Color = '$update_p_color', product_QuantityInStock = '$update_p_quantity', product_details = '$update_p_describtion', Category_id = '$update_c_id', product_image = '$update_p_image' WHERE product_id = '$update_p_id'");
 
     if ($update_query) {
@@ -118,7 +118,7 @@ if (isset($_POST['update_product'])) {
     };
     ?>
 
-    <?php include 'head-admin.php'; ?>
+    <?php include 'admin-head.php'; ?>
 
     <div class="container">
         <section>
@@ -129,7 +129,7 @@ if (isset($_POST['update_product'])) {
                 <input type="text" name="p_size" placeholder="Enter the product size" class="box" required>
                 <input type="text" name="p_color" placeholder="Enter the product color" class="box" required>
                 <input type="number" name="p_quantity" placeholder="Enter the product quantity in stock" class="box" required>
-                <input type="number" name="p_describtion" placeholder="Enter the product describtion" class="box" required>
+                <input type="text" name="p_describtion" placeholder="Enter the product describtion" class="box" required>
                 <input type="text" name="c_name" placeholder="Enter the category name" class="box" required>
                 <input type="file" name="p_image" accept="image/png, image/jpg, image/jpeg" class="box" required>
                 <input type="submit" value="Add the product" name="add_product" class="btn">
@@ -189,7 +189,8 @@ if (isset($_POST['update_product'])) {
             <?php
             if (isset($_GET['edit'])) { // Added curly braces here
                 $edit_id = $_GET['edit'];
-                $edit_query = mysqli_query($con, "SELECT * FROM `product` WHERE product_id = $edit_id");
+                $edit_query = mysqli_query($con, "SELECT p.*, c.Category_name FROM product p 
+                JOIN category c ON p.Category_id = c.Category_id WHERE product_id = $edit_id");
                 if (mysqli_num_rows($edit_query) > 0) {
                     while ($fetch_edit = mysqli_fetch_assoc($edit_query)) {
             ?>
@@ -206,10 +207,12 @@ if (isset($_POST['update_product'])) {
                             <input type="text" name="update_p_color" class="box" required value="<?php echo $fetch_edit['product_Color']; ?>">
                             <input type="number" name="update_p_quantity" class="box" required value="<?php echo $fetch_edit['product_QuantityInStock']; ?>">
                             <input type="text" name="update_c_name" class="box" required value="<?php echo $fetch_edit['Category_name']; ?>">
+                            <input type="hidden" name="update_c_id" value="<?php echo $fetch_edit['Category_id']; ?>"> <!-- Hidden input for Category_id -->
                             <input type="file" class="box" required name="update_p_image" accept="image/png, image/jpg, image/jpeg">
-                            <input type="submit" value="update the prodcut" name="update_product" class="btn">
-                            <input type="reset" value="cancel" id="close-edit" class="option-btn">
+                            <input type="submit" value="Update the product" name="update_product" class="btn">
+                            <input type="reset" value="Cancel" id="close-edit" class="option-btn">
                         </form>
+
 
             <?php
                     };
