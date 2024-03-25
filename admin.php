@@ -10,6 +10,21 @@ function set_message($msg)
 {
     $_SESSION['message'][] = $msg;
 }
+function getCategoryID($c_name)
+{
+    switch ($c_name) {
+        case 'Skirts':
+            return 1;
+        case 'Hijabs':
+            return 2;
+        case 'Dresses':
+            return 3;
+        case 'Shoes':
+            return 4;
+        default:
+            return -1; // Or any other default value indicating no match
+    }
+}
 
 // Check if session messages exist and assign them to $message array
 if (isset($_SESSION['message'])) {
@@ -28,8 +43,8 @@ if (isset($_POST['add_product'])) {
     $p_image_tmp_name = $_FILES['p_image']['tmp_name'];
     $p_image_folder = 'uploaded/' . $p_image;
 
-    $insert_query = mysqli_query($con, "INSERT INTO product(product_name,product_price,product_Size,product_Color,product_QuantityInStock,Category_name,product_image) VALUES('$p_name', '$p_price','$p_size','$p_color','$p_quantity','$c_name' ,'$p_image')") or die('query failed');
-
+    $c_id = getCategoryID($c_name);
+    $insert_query = mysqli_query($con, "INSERT INTO product(product_name,product_price,product_Size,product_Color,product_QuantityInStock,product_image, Category_id) VALUES('$p_name', '$p_price','$p_size','$p_color','$p_quantity','$p_image', '$c_id')") or die('query failed');
     if ($insert_query) {
         move_uploaded_file($p_image_tmp_name, $p_image_folder);
         set_message('Product added successfully'); // Set success message
@@ -63,8 +78,8 @@ if (isset($_POST['update_product'])) {
     $update_p_image = $_FILES['update_p_image']['name'];
     $update_p_image_tmp_name = $_FILES['update_p_image']['tmp_name'];
     $update_p_image_folder = 'uploaded_img/' . $update_p_image;
-
-    $update_query = mysqli_query($con, "UPDATE product SET product_name = '$update_p_name', product_price = '$update_p_price', product_Size ='$update_p_size', product_Color = '$update_p_color', product_QuantityInStock = '$update_p_quantity ', Category_name = '$update_c_nam', product_image = '$update_p_image' WHERE product_id = '$update_p_id'");
+    $update_c_id = getCategoryID($updatec_name);
+    $update_query = mysqli_query($con, "UPDATE product SET product_name = '$update_p_name', product_price = '$update_p_price', product_Size ='$update_p_size', product_Color = '$update_p_color', product_QuantityInStock = '$update_p_quantity ', Category_id = '$update_c_id', product_image = '$update_p_image' WHERE product_id = '$update_p_id'");
 
     if ($update_query) {
         move_uploaded_file($update_p_image_tmp_name, $update_p_image_folder);
