@@ -38,13 +38,14 @@ if (isset($_POST['add_product'])) {
     $p_size = $_POST['p_size'];
     $p_color = $_POST['p_color'];
     $p_quantity = $_POST['p_quantity'];
+    $p_describtion = $_POST['p_describtion'];
     $c_name = $_POST['c_name'];
     $p_image = $_FILES['p_image']['name'];
     $p_image_tmp_name = $_FILES['p_image']['tmp_name'];
     $p_image_folder = 'uploaded/' . $p_image;
 
     $c_id = getCategoryID($c_name);
-    $insert_query = mysqli_query($con, "INSERT INTO product(product_name,product_price,product_Size,product_Color,product_QuantityInStock,product_image, Category_id) VALUES('$p_name', '$p_price','$p_size','$p_color','$p_quantity','$p_image', '$c_id')") or die('query failed');
+    $insert_query = mysqli_query($con, "INSERT INTO product(product_name,product_price,product_Size,product_Color,product_QuantityInStock,product_image, product_details, Category_id) VALUES('$p_name', '$p_price','$p_size','$p_color','$p_quantity','$p_image', $p_describtion,'$c_id')") or die('query failed');
     if ($insert_query) {
         move_uploaded_file($p_image_tmp_name, $p_image_folder);
         set_message('Product added successfully'); // Set success message
@@ -74,12 +75,13 @@ if (isset($_POST['update_product'])) {
     $update_p_size = $_POST['update_p_size'];
     $update_p_color = $_POST['update_p_color'];
     $update_p_quantity = $_POST['update_p_quantity'];
+    $update_p_describtion = $_POST['upadate_p_describtion'];
     $update_c_name = $_POST['update_c_name'];
     $update_p_image = $_FILES['update_p_image']['name'];
     $update_p_image_tmp_name = $_FILES['update_p_image']['tmp_name'];
     $update_p_image_folder = 'uploaded_img/' . $update_p_image;
     $update_c_id = getCategoryID($updatec_name);
-    $update_query = mysqli_query($con, "UPDATE product SET product_name = '$update_p_name', product_price = '$update_p_price', product_Size ='$update_p_size', product_Color = '$update_p_color', product_QuantityInStock = '$update_p_quantity ', Category_id = '$update_c_id', product_image = '$update_p_image' WHERE product_id = '$update_p_id'");
+    $update_query = mysqli_query($con, "UPDATE product SET product_name = '$update_p_name', product_price = '$update_p_price', product_Size ='$update_p_size', product_Color = '$update_p_color', product_QuantityInStock = '$update_p_quantity', product_details = '$update_p_describtion', Category_id = '$update_c_id', product_image = '$update_p_image' WHERE product_id = '$update_p_id'");
 
     if ($update_query) {
         move_uploaded_file($update_p_image_tmp_name, $update_p_image_folder);
@@ -127,6 +129,7 @@ if (isset($_POST['update_product'])) {
                 <input type="text" name="p_size" placeholder="Enter the product size" class="box" required>
                 <input type="text" name="p_color" placeholder="Enter the product color" class="box" required>
                 <input type="number" name="p_quantity" placeholder="Enter the product quantity in stock" class="box" required>
+                <input type="number" name="p_describtion" placeholder="Enter the product describtion" class="box" required>
                 <input type="text" name="c_name" placeholder="Enter the category name" class="box" required>
                 <input type="file" name="p_image" accept="image/png, image/jpg, image/jpeg" class="box" required>
                 <input type="submit" value="Add the product" name="add_product" class="btn">
@@ -143,6 +146,7 @@ if (isset($_POST['update_product'])) {
                     <th>product color</th>
                     <th>product quantity</th>
                     <th>category name</th>
+                    <th>product describtion</th>
                     <th>action</th>
                 </thead>
                 <tbody>
@@ -164,6 +168,7 @@ if (isset($_POST['update_product'])) {
                                 <td><?php echo  $row['product_Color']; ?></td>
                                 <td><?php echo  $row['product_QuantityInStock']; ?></td>
                                 <td><?php echo  $row['Category_name']; ?></td>
+                                <td><?php echo  $row['product_details']; ?></td>
                                 <td>
                                     <a href="admin.php?delete=<?php echo $row['product_id']; ?>" class="delete-btn" onclic="return confirm('are your sure you want to delete this ?')"> <i class="fas fa-trash"></i> delete </a>
                                     <a href="admin.php?edit=<?php echo $row['product_id']; ?>" class="option-btn"><i class="fas fa-edit"></i>update</a>
